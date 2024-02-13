@@ -1,0 +1,9 @@
+AKUN SEBAGAI ADMIN: 
+admin@gmail.com
+Password:
+admin
+
+AKUN SEBAGAI KASIR: 
+kasir@gmail.com
+Password:
+kasir
