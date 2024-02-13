@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 07:43 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Waktu pembuatan: 13 Feb 2024 pada 05.02
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -34,7 +34,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_barang`
+-- Struktur dari tabel `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -63,18 +63,18 @@ CREATE TABLE `tbl_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_barang`
+-- Dumping data untuk tabel `tbl_barang`
 --
 
 INSERT INTO `tbl_barang` (`id`, `id_jenis`, `nama_barang`, `harga`, `stok`, `created_at`, `updated_at`) VALUES
-(2, 2, 'Kinder Joy', 10000, 78, '2023-03-04 01:14:33', '2023-03-07 19:54:31'),
-(3, 2, 'Chitato', 15000, 90, '2023-03-04 01:14:51', '2023-03-06 01:58:33'),
-(4, 3, 'Tamiya', 20000, 7, '2023-03-04 01:15:20', '2023-03-07 19:54:31');
+(7, 4, 'Roti Isi Srikaya', 6000, 190, '2024-02-11 23:07:01', '2024-02-11 23:12:29'),
+(8, 5, 'Roti Sandwich Coklat', 8000, 196, '2024-02-11 23:07:28', '2024-02-11 23:12:29'),
+(9, 6, 'Roti Tawar Kupas', 9000, 195, '2024-02-11 23:07:56', '2024-02-11 23:12:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_transaksi`
+-- Struktur dari tabel `tbl_detail_transaksi`
 --
 
 CREATE TABLE `tbl_detail_transaksi` (
@@ -87,21 +87,18 @@ CREATE TABLE `tbl_detail_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_detail_transaksi`
+-- Dumping data untuk tabel `tbl_detail_transaksi`
 --
 
 INSERT INTO `tbl_detail_transaksi` (`id`, `no_transaksi`, `id_barang`, `qty`, `created_at`, `updated_at`) VALUES
-(8, 'NT-001', 2, 2, '2023-03-06 01:58:33', '2023-03-06 01:58:33'),
-(9, 'NT-001', 3, 10, '2023-03-06 01:58:33', '2023-03-06 01:58:33'),
-(10, 'NT-002', 2, 15, '2023-03-06 20:40:28', '2023-03-06 20:40:28'),
-(11, 'NT-002', 4, 2, '2023-03-06 20:40:28', '2023-03-06 20:40:28'),
-(12, 'NT-003', 2, 5, '2023-03-07 19:54:31', '2023-03-07 19:54:31'),
-(13, 'NT-003', 4, 2, '2023-03-07 19:54:31', '2023-03-07 19:54:31');
+(14, 'NT-001', 7, 10, '2024-02-11 23:12:29', '2024-02-11 23:12:29'),
+(15, 'NT-001', 9, 5, '2024-02-11 23:12:29', '2024-02-11 23:12:29'),
+(16, 'NT-001', 8, 4, '2024-02-11 23:12:29', '2024-02-11 23:12:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_diskon`
+-- Struktur dari tabel `tbl_diskon`
 --
 
 CREATE TABLE `tbl_diskon` (
@@ -113,16 +110,16 @@ CREATE TABLE `tbl_diskon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_diskon`
+-- Dumping data untuk tabel `tbl_diskon`
 --
 
 INSERT INTO `tbl_diskon` (`id`, `total_belanja`, `diskon`, `created_at`, `updated_at`) VALUES
-(1, 100000, 10, NULL, '2023-03-04 01:27:20');
+(1, 100000, 10, NULL, '2024-02-11 23:08:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jenis_barang`
+-- Struktur dari tabel `tbl_jenis_barang`
 --
 
 CREATE TABLE `tbl_jenis_barang` (
@@ -133,17 +130,18 @@ CREATE TABLE `tbl_jenis_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_jenis_barang`
+-- Dumping data untuk tabel `tbl_jenis_barang`
 --
 
 INSERT INTO `tbl_jenis_barang` (`id`, `nama_jenis`, `created_at`, `updated_at`) VALUES
-(2, 'Makanan', '2023-03-02 19:28:54', '2023-03-02 19:28:54'),
-(3, 'Mainan', '2023-03-02 19:29:02', '2023-03-02 19:29:02');
+(4, 'Roti Isi', '2024-02-11 23:06:15', '2024-02-11 23:06:15'),
+(5, 'Roti Sandwich', '2024-02-11 23:06:32', '2024-02-11 23:06:32'),
+(6, 'Roti Tawar', '2024-02-11 23:06:44', '2024-02-11 23:06:44');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_transaksi`
+-- Struktur dari tabel `tbl_transaksi`
 --
 
 CREATE TABLE `tbl_transaksi` (
@@ -160,18 +158,16 @@ CREATE TABLE `tbl_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_transaksi`
+-- Dumping data untuk tabel `tbl_transaksi`
 --
 
 INSERT INTO `tbl_transaksi` (`id`, `no_transaksi`, `tgl_transaksi`, `subtotal`, `diskon`, `kembalian`, `uang_pembeli`, `total_bayar`, `created_at`, `updated_at`) VALUES
-(5, 'NT-001', '2023-03-06', 170000, 17000, 47000, 200000, 153000, '2023-03-06 01:58:33', '2023-03-06 01:58:33'),
-(6, 'NT-002', '2023-03-07', 190000, 19000, 29000, 200000, 171000, '2023-03-06 20:40:28', '2023-03-06 20:40:28'),
-(7, 'NT-003', '2023-03-08', 90000, 0, 10000, 100000, 90000, '2023-03-07 19:54:31', '2023-03-07 19:54:31');
+(8, 'NT-001', '2024-02-12', 137000, 13700, 26700, 150000, 123300, '2024-02-11 23:12:29', '2024-02-11 23:12:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -185,105 +181,106 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '$2y$10$L0ZoAiRO6u9/m9V/OwaMb.m/84ZCjO3MwdxvXPJmGIIXnA2leO/Ia', 'admin', NULL, '2023-03-07 08:08:10'),
-(2, 'kasir', 'kasir@gmail.com', '$2y$10$l.ZS2TJvJOrXe3QWtpzxq.m/8vY08sZXs36INgGODu6EcNn4EjHbq', 'kasir', NULL, NULL);
+(1, 'admin', 'admin@gmail.com', '$2y$10$C.W62yA.cd1m.eofqDJap.oImUaEGPZ3.aucRJy0ccEZ.rqlHlKPu', 'admin', NULL, '2024-02-12 01:18:36'),
+(2, 'kasir', 'kasir@gmail.com', '$2y$10$YcrO74DJmtsxEmhO.ZzBOeRr9vKJOGuWKFj5zxdu7mhZ8jRBSiDDq', 'kasir', NULL, '2024-02-11 23:11:07'),
+(8, 'admin2', 'admin2@gmail.com', '$2y$10$QnXV8yZWSz7D6TOY4tb9De2gKj4Vz0trdD9DyetkHPCcD68YxaoFq', 'admin', '2024-02-12 01:19:17', '2024-02-12 01:19:49');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_barang`
+-- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_detail_transaksi`
+-- Indeks untuk tabel `tbl_detail_transaksi`
 --
 ALTER TABLE `tbl_detail_transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_diskon`
+-- Indeks untuk tabel `tbl_diskon`
 --
 ALTER TABLE `tbl_diskon`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_jenis_barang`
+-- Indeks untuk tabel `tbl_jenis_barang`
 --
 ALTER TABLE `tbl_jenis_barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_transaksi`
+-- Indeks untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_barang`
+-- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbl_detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_detail_transaksi`
 --
 ALTER TABLE `tbl_detail_transaksi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tbl_diskon`
+-- AUTO_INCREMENT untuk tabel `tbl_diskon`
 --
 ALTER TABLE `tbl_diskon`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_jenis_barang`
+-- AUTO_INCREMENT untuk tabel `tbl_jenis_barang`
 --
 ALTER TABLE `tbl_jenis_barang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_transaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
