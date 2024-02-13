@@ -16,7 +16,7 @@ class UserController extends Controller
             'data_user' => User::all(),
         );
 
-        return view('admin.master.user.list',$data);
+        return view('admin.master.user.list', $data);
     }
 
     public function profile()
@@ -28,7 +28,7 @@ class UserController extends Controller
             'data_profile' => User::where('id', $user)->get(),
         );
 
-        return view('profile',$data);
+        return view('profile', $data);
     }
 
     public function store(Request $request)
@@ -46,13 +46,12 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         User::where('id', $id)
-          ->where('id', $id)
             ->update([
                 'name'     => $request->name,
                 'email'    => $request->email,
                 'password' => Hash::make($request->password),
                 'role'     => $request->role,
-          ]);
+            ]);
 
         return redirect('/user')->with('success', 'Data Berhasil Di Ubah');
     }
@@ -60,13 +59,12 @@ class UserController extends Controller
     public function updateprofile(Request $request, $id)
     {
         User::where('id', $id)
-          ->where('id', $id)
             ->update([
                 'name'     => $request->name,
                 'email'    => $request->email,
                 'password' => Hash::make($request->password),
                 'role'     => $request->role,
-          ]);
+            ]);
 
         return redirect('/profile')->with('success', 'Data Berhasil Di Ubah');
     }
